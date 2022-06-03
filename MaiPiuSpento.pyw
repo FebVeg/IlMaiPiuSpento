@@ -2,28 +2,32 @@ from pynput.keyboard import Key, Controller, Listener
 from pynput import keyboard, mouse
 from time import sleep
 
-print("\n\tSviluppato in ambito professionale (PalAXA) dal dottor Federizio Cagnissi\n")
 
 global var
 var = 0
 
+
 keyboard_click = Controller()
 soglia         = 120
 tempo          = soglia
+
 
 def click():
     keyboard_click.press(Key.shift)
     sleep(0.1)
     keyboard_click.release(Key.shift)
 
+
 def on_press(key):
     global var
     var = 1
     print(f"Fermi tutti! Qualcuno mi ha toccato :D")
 
+
 def on_titilling(ev):
     global var
     var = 1
+
 
 with keyboard.Listener(on_press=on_press) as listener:
     print("Allora io vado eh...")
